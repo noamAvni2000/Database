@@ -11,12 +11,17 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.List;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button btn;
     private TextView tv;
+    private String thePer;
+    private String theS;
+    private int theId;
+    private int theN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,15 +35,8 @@ public class MainActivity extends AppCompatActivity {
         });
         Database db=Database.getInstance(this);
         TavlaDao tavlaDao=db.TavlaDao();
-
-        for(int i=0;i<50;i++){
-            Tavla tavla=new Tavla();
-            Random r=new Random();
-            tavla.setN(r.nextInt(10));
-            tavla.setPer(r.nextInt(100)+" percent");
-            tavla.setS("some sentence");
-            tavlaDao.insert(tavla);
-        }
+        Random r=new Random();
+        List<Tavla> all= tavlaDao.getAllInfo();
 
         btn=findViewById(R.id.btn);
         tv=findViewById(R.id.tv);
@@ -46,6 +44,12 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int i=r.nextInt(40);
+                thePer= all.get(i).getPer().toString();
+                theS=all.get(i).getS().toString();
+                theId=all.get(i).getId();
+                theN=all.get(i).getN();
+                tv.setText(theId+" "+theS+" "+theN+" "+thePer);
 
             }
         });
