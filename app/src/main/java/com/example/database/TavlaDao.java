@@ -11,7 +11,7 @@ import java.util.List;
 @Dao
 public interface TavlaDao {
     @Insert
-    void insert (Tavla t);
+    void insert(Tavla t);
 
     @Update
     void update (Tavla t);
