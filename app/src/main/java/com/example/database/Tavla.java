@@ -8,11 +8,10 @@ public class Tavla {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-    private String s;
-
-    private Integer n;
-
-    private String per;
+    private String firstName;
+    private String lastName;
+    private String adress;
+    private String phone;
 
     public int getId() {
         return id;
@@ -22,27 +21,35 @@ public class Tavla {
         this.id = id;
     }
 
-    public String getS() {
-        return s;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setS(String s) {
-        this.s = s;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public Integer getN() {
-        return n;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setN(Integer n) {
-        this.n = n;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getPer() {
-        return per;
+    public String getAdress() {
+        return adress;
     }
 
-    public void setPer(String per) {
-        this.per = per;
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }
