@@ -21,4 +21,5 @@ public interface TavlaDao {
 
     @Query("SELECT*FROM tavla")
     List<Tavla>getAllInfo();
+
 }
